@@ -1,0 +1,50 @@
+<div class="w-screen h-screen bg-gray-300">
+    <div class="container w-1/2 p-20 m-auto">
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div class="text-center">
+                <span class="text-3xl font-semibold">Date Formater</span>
+            </div>
+
+            <div class="mb-4">
+                <div class="flex">
+                    <div class="w-1/2 mx-2">
+                        <label for="format">Data no Padrão Americano</label>
+                        <input [(ngModel)]="data.date" [ngModelOptions]="{standalone: true}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="format" type="text" placeholder="dd/MM/yyy">
+                    </div>
+
+                    <div class="w-1/2 mx-2">
+                        <label for="format">Novo Formato Desejado</label>
+                        <input [(ngModel)]="data.format" [ngModelOptions]="{standalone: true}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="format" type="text" placeholder="dd/MM/yyy">
+                    </div>
+                </div>
+
+                <div class="flex w-full">
+                    <label class="md:w-2/3 block mx-2 text-gray-500 font-bold">
+                        <input class="mr-2 leading-tight" type="checkbox"  [ngModelOptions]="{standalone: true}" [(ngModel)]="data.share_with_all">
+                        <span class="text-sm">
+                            Compartilhar em sugestões de formatação
+                        </span>
+                    </label>
+                </div>
+
+                <div *ngIf="formattedDate" class="flex">
+                    <span>Último resultado: {{ formattedDate }}</span>
+                </div>
+
+                <div *ngIf="suggestions && suggestions.length > 0" class="my-4">
+                    <span class="flex">Sugestões de outros usuários:</span>
+                    <div class="px-4 flex flex-wrap">
+                        <ng-container *ngFor="let suggestion of suggestions; let i = index">
+                            <span *ngIf="i > 0" class="mr-2">, </span><span class="flex text-gray-600">{{suggestion}}</span>
+                        </ng-container>
+                    </div>
+                </div>
+
+                <button class="bg-blue-500 mt-4 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="button" (click)="click()">
+                    Formatar
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
