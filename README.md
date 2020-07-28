@@ -1,2 +1,2 @@
 # websocket-client
-Trabalho utilizando websocket para a materia de redes do curso de Ciência da computação da UNESC
+Trabalho utilizando websocket para a matéria de redes de computadores do curso de Ciência da computação da UNESC
